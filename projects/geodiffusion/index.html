@@ -148,15 +148,15 @@
                 </a>
               </span> -->
               <!-- Code Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+              <span class="link-block">
+                <a href="./index.html"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
-              </span> -->
+              </span>
               <!-- Dataset Link. -->
               <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
@@ -224,7 +224,6 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Results</h2>
-        <h2 class="title is-4">Fidelity (NuImages)</h2>
         <div class="container" width=700px>
           <div id="results-carousel" class="carousel results-carousel">
             <div class="item item-clevr">
@@ -249,7 +248,35 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-4">Fidelity (COCO)</h2>
+        <h2 class="title is-4">Generataion on NuImages</h2>
+        <div class="container" width=700px>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_1.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_2.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_3.PNG">
+              </div>
+            </div>
+            <p>
+              <b>Input Layouts</b> (1st column), <b>Ground Truth</b> (2nd column), <b>Baseline</b> (3rd column), <b><em>GeoDiffusion</em></b> (4th column)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Generataion on COCO</h2>
         <div class="container" width=700px>
           <div id="results-carousel" class="carousel results-carousel">
             <div class="item item-clevr">
@@ -267,6 +294,9 @@
                 <img src="./static/images/fidelity/coco_3.PNG">
               </div>
             </div>
+            <p>
+              <b>Input Layouts</b> (1st column), <b>Ground Truth</b> (2nd column), <b>Baseline</b> (3rd column), <b><em>GeoDiffusion</em></b> (4th-6th columns)
+            </p>
           </div>
         </div>
       </div>
