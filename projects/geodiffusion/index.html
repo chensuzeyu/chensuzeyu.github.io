@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A universally geometric-aware diffusion model to generate high-quality data for object detection">
+  <meta name="keywords" content="GeoDiffusion, geometric-aware, diffusion, diffusion models, AIGC, generative models, object detection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoDiffusion: Integrating Geometric Control into Text-to-Image Diffusion Models for High-Quality Detection Data Generation via Text Prompt</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="../../images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://kaichen1998.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://www.bilibili.com/video/BV1bu411W78S/">
+            MixedAE (CVPR2023)
+          </a>
+          <a class="navbar-item" href="https://openreview.net/forum?id=j8IiQUM33s">
+            MoCE  (ICLR2023 Spotlight)
+          </a>
+          <a class="navbar-item" href="https://coda-dataset.github.io/">
+            CODA (ECCV2022)
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2108.12178">
+            MultiSiam (ICCV2021)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="publication-title">Integrating Geometric Control into Text-to-Image Diffusion Models for High-Quality Detection Data Generation via Text Prompt</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kaichen1998.github.io/">Kai Chen</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://xieenze.github.io/">Enze Xie</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://czczup.github.io/">Zhe Chen</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=2p7x6OUAAAAJ&view_op=list_works&sortby=pubdate">Lanqing Hong</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=zh-CN">Zhenguo Li</a><sup>2</sup>,
+            </span>
+            	<span class="author-block">
+              <a href="https://sites.google.com/view/dyyeung/home">Dit-Yan Yeung</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Hong Kong University of Science and Technology,</span>
+            <span class="author-block"><sup>2</sup>Huawei Noah's Ark Lab,</span>
+            <span class="author-block"><sup>3</sup>Nanjing University</span>
+            <br>
+            <span class="author-block">(* indicates equal contribution)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2306.04607"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2306.04607"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="./index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser">
+        <img src="./static/images/abstract.PNG">
+      </div>
+      <h2 class="subtitle has-text-centered">
+        (Left) <em>GeoDiffusion</em> supports various geometric condtions (bboxes & camera views) with a unified architecture.
+        (Right) <em>GeoDiffusion</em>-generated images can be beneficial for object detector training.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have attracted significant attention due to remarkable create contention ability. 
+            However, the usage of diffusion models to generate high-quality object detection data remains an underexplored area, where not only the image-level perceptual quality but also geometric conditions such as bounding boxes and camera views are essential. 
+          </p>
+          <p>
+            We propose GeoDiffusion, a simple framework that flexibly translates various geometric conditions into text prompts and empower the pre-trained text-to-image (T2I) diffusion models for high-quality detection data generation.
+            Unlike previous methods, our GeoDiffusion can encode not only bounding boxes but also extra geometric conditions such as camera views in self-driving scenes.
+          </p>
+          <p>
+            This is the very first work to adopt diffusion models for layout-to-image generation with geometric conditions and show L2I-generated images can be beneficial for improving object detectors.
+          </p>
+            <div class="teaser">
+            <img src="./static/images/method.PNG">
+          </div>  
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <!-- <div class="hero-body"> -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="container" width=700px>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_1.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_2.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_3.PNG">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Generataion on NuImages</h2>
+        <div class="container" width=700px>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_1.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_2.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/nuimages_3.PNG">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Generataion on COCO</h2>
+        <div class="container" width=700px>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/coco_1.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/coco_2.PNG">
+              </div>
+            </div>
+            <div class="item item-clevr">
+              <div class="teaser">
+                <img src="./static/images/fidelity/coco_3.PNG">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{chen2023integrating,
+  author    = {Chen, Kai and Xie, Enze and Chen, Zhe and Hong, Lanqing and Li, Zhenguo and Yeung, Dit-Yan},
+  title     = {Integrating Geometric Control into Text-to-Image Diffusion Models for High-Quality Detection Data Generation via Text Prompt},
+  journal   = {arXiv: 2306.04607},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <center>The website template was adapted from <a href="https://nerfies.github.io/">Nerfies</a>. We thank the authors for sharing the templates.</center>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
