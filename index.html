@@ -138,7 +138,7 @@
     <div class="details">
         <p> I am currently a Ph.D. candidate in CSE department of Hong Kong University of Science and Technology (HKUST), supervised by <a href="https://sites.google.com/view/dyyeung/home?authuser=0" target="_blank">Prof. Dit-Yan Yeung</a>. 
         Previously, I was an undergraduate student majoring in Computer Science in Fudan University honored as Outstanding Undergraduate of Shanghai, supervised by <a href="https://yanweifu.github.io/" target="_blank">Prof. Yanwei Fu</a>. 
-        My research interests include Computer Vision and Artificial Intelligence, especially in representation learning, self-supervised learning and high-level vision perception.
+        My research interests include Computer Vision and Artificial Intelligence, especially in representation learning, vision perception and generative modeling (AIGC).
         </p>
     </div>
 </section>
@@ -150,6 +150,8 @@
     </div>
     <div style="height:200px;overflow-y:auto">
     <ul>
+    <li> [2023.10] The first wave of our geometric-aware controllable generation series of works, <a href="https://arxiv.org/abs/2306.04607">GeoDiffusion</a>, <a href="https://arxiv.org/abs/2310.02601">MagicDrive</a> and <a href="https://arxiv.org/abs/2310.05873">Geom-Erasing</a>, is on Arxiv! </li>
+    <li> [2023.10] <a href="https://arxiv.org/abs/2310.02601">MagicDrive</a> is reported by <a href="https://mp.weixin.qq.com/s/jtFdJM0eXbaZ_7oeODcLRw">Xinzhiyuan</a>! </li>
     <li> [2023.09] Invited to serve as a reviewer for ICLR 2024! </li>
     <li> [2023.05] Our papers <a href="https://arxiv.org/abs/2303.17152">MixedAE</a> (CVPR 2023), <a href="https://openreview.net/forum?id=j8IiQUM33s">MoCE</a> (ICLR 2023) and <a href="https://coda-dataset.github.io/">CODA</a> (ECCV 2022) will be presented in VALSE 2023! See you in Wuxi! </li>
     <li> [2023.05] One paper accepted by Workshop of Self-supervised Visual Representation Learning, VALSE 2023 (<span style="color:red"><b>spotlight</b></span>)! </li>
@@ -182,22 +184,71 @@
     <div class="section-title">
         Publications
     </div>
-    <p>(* denotes equal contribution)</p>    
+    <p>(* denotes equal contribution)</p>
+    <h5><b>AIGC Harmfulness</b></h5>    
+    <div class="publication-container">
+        <div class="teaser-container">
+            <img class="teaser" src="./images/pub/mistake_analysis.png" alt="mistake_analysis.png">
+        </div>
+        <div class="info-container">
+                <p class="title">
+                    <a class="title_link" href="https://arxiv.org/abs/2310.10477" target="_blank">Gaining Wisdom from Setbacks: Aligning Large Language Models via Mistake Analysis</a>
+                </p>
+                <div class="authors"><p><strong>Kai Chen*</strong>, Chunwei Wang*, Kuo Yang, Jianhua Han, Lanqing Hong, Fei Mi, Hang Xu, Zhengying Liu, Wenyong Huang, Zhenguo Li, Dit-Yan Yeung, Lifeng Shang, Xin Jiang, Qun Liu.</p></div>
+                <div class="authors"><p><em><b><span style="color:red">LLM can learn from mistakes like human beings!</span></em></p></b></div>
+                <div class="conference"><p><em>Arxiv preprint, 2023.</em></p></div>
+                <a class="url" href="https://arxiv.org/abs/2310.10477" target="_blank">[PDF]</a>
+        </div>
+    </div>
+
+    
+    <h5><b>AIGC Helpfulness - Geometric-aware Perception Data Generation</b></h5>
+    <div class="publication-container">
+        <div class="teaser-container">
+            <img class="teaser" src="./images/pub/magicdrive.png" alt="magicdrive.png">
+        </div>
+        <div class="info-container">
+                <p class="title">
+                    <a class="title_link" href="https://arxiv.org/abs/2310.02601" target="_blank">MagicDrive: Street View Generation with Diverse 3D Geometry Control</a>
+                </p>
+                <div class="authors"><p>Ruiyuan Gao*, <strong>Kai Chen*</strong>, Enze Xie, Lanqing Hong, Zhenguo Li, Dit-Yan Yeung, Qiang Xu.</p></div>
+                <div class="authors"><p><em><b><span style="color:red">Fully advanced geometric-aware diffusion model for object detection systems!</span></em></p></b></div>
+                <div class="conference"><p><em>Arxiv preprint, 2023.</em></p></div>
+                <a class="url" href="https://arxiv.org/abs/2310.02601" target="_blank">[PDF]</a><a class="url" href="https://gaoruiyuan.com/magicdrive/" target="_blank">[Project page]</a><a class="url" href="https://mp.weixin.qq.com/s/jtFdJM0eXbaZ_7oeODcLRw" target="_blank">[Report]</a>
+        </div>
+    </div>
+
+    <div class="publication-container">
+        <div class="teaser-container">
+            <img class="teaser" src="./images/pub/geom_erasing.png" alt="geom_erasing.png">
+        </div>
+        <div class="info-container">
+                <p class="title">
+                    <a class="title_link" href="https://arxiv.org/abs/2310.05873" target="_blank">Geom-Erasing: Geometry-Driven Removal of Implicit Concept in Diffusion Models</a>
+                </p>
+                <div class="authors"><p>Zhili Liu*, <strong>Kai Chen*</strong>, Yifan Zhang, Jianhua Han, Lanqing Hong, Hang Xu, Zhenguo Li, Dit-Yan Yeung, James Kwok.</p></div>
+                <div class="authors"><p><em><b><span style="color:red">First utilization of controllable diffusion models for concept removal!</span></em></p></b></div>
+                <div class="conference"><p><em>Arxiv preprint, 2023.</em></p></div>
+                <a class="url" href="https://arxiv.org/abs/2310.05873" target="_blank">[PDF]</a>
+        </div>
+    </div>
+
     <div class="publication-container">
         <div class="teaser-container">
             <img class="teaser" src="./images/pub/geodiffusion.png" alt="geodiffusion.png">
         </div>
         <div class="info-container">
                 <p class="title">
-                    <a class="title_link" href="https://arxiv.org/abs/2306.04607" target="_blank">Integrating Geometric Control into Text-to-Image Diffusion Models for High-Quality Detection Data Generation via Text Prompt</a>
+                    <a class="title_link" href="https://arxiv.org/abs/2306.04607" target="_blank">GeoDiffusion: Text-Prompted Geometric Control for Object Detection Data Generation</a>
                 </p>
-                <div class="authors"><p><strong>Kai Chen*</strong>, Enze Xie*, Zhe Chen, Lanqing Hong, Zhenguo Li, Dit-Yan Yeung.</p></div>
+                <div class="authors"><p><strong>Kai Chen*</strong>, Enze Xie*, Zhe Chen, Yibo Wang, Lanqing Hong, Zhenguo Li, Dit-Yan Yeung.</p></div>
                 <div class="authors"><p><em><b><span style="color:red">First geometric-aware AIGC work beneficial for object detection systems!</span></em></p></b></div>
                 <div class="conference"><p><em>Arxiv preprint, 2023.</em></p></div>
                 <a class="url" href="https://arxiv.org/abs/2306.04607" target="_blank">[PDF]</a><a class="url" href="https://kaichen1998.github.io/projects/geodiffusion/" target="_blank">[Project page]</a>
         </div>
     </div>
 
+    <h5><b>AIGC Helpfulness - Efficient Self-supervised Learning</b></h5>
     <div class="publication-container">
         <div class="teaser-container">
             <img class="teaser" src="./images/pub/mixedae.png" alt="mixedae.png">
@@ -209,7 +260,7 @@
                 <div class="authors"><p><strong>Kai Chen</strong>, Zhili Liu, Lanqing Hong, Hang Xu, Zhenguo Li, Dit-Yan Yeung.</p></div>
                 <div class="conference"><p><em>IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR), 2023.</em></p></div>
                 <div class="conference"><p><em>Workshop of Self-supervised Visual Representation Learning, Vision and Learning Seminar (VALSE), 2023 (<span style="color:red"><b>spotlight</b></span>).</em></p></div>
-                <a class="url" href="https://arxiv.org/abs/2303.17152" target="_blank">[PDF]</a><a class="url" href="https://mp.weixin.qq.com/s/duJODVzfI6aJsx3L58IkcQ" target="_blank">[Wechat Post (Chinese)]</a>
+                <a class="url" href="https://arxiv.org/abs/2303.17152" target="_blank">[PDF]</a><a class="url" href="https://mp.weixin.qq.com/s/duJODVzfI6aJsx3L58IkcQ" target="_blank">[Report]</a>
         </div>
     </div>
 
@@ -223,24 +274,7 @@
                 </p>
                 <div class="authors"><p>Zhili Liu, <strong>Kai Chen</strong>, Jianhua Han, Lanqing HONG, Hang Xu, Zhenguo Li, James Kwok.</p></div>
                 <div class="conference"><p><em>International Conference on Learning Representations (ICLR), 2023 (<span style="color:red"><b>spotlight Top25%</b></span>).</em></p></div>
-                <a class="url" href="https://openreview.net/forum?id=j8IiQUM33s" target="_blank">[PDF]</a><a class="url" href="https://mp.weixin.qq.com/s/duJODVzfI6aJsx3L58IkcQ" target="_blank">[Wechat Post (Chinese)]</a>
-        </div>
-    </div>
-
-    <div class="publication-container">
-        <div class="teaser-container">
-            <img class="teaser" src="./images/pub/coda.png" alt="coda.png">
-        </div>
-        <div class="info-container">
-                <p class="title">
-                    <a class="title_link" href="https://arxiv.org/abs/2203.07724" target="_blank">CODA: A Real-World Road Corner Case Dataset for Object Detection in Autonomous Driving</a>
-                </p>
-                <div class="authors"><p>Kaican Li*, <strong>Kai Chen*</strong>, Haoyu Wang*, Lanqing Hong, Chaoqiang Ye, Jianhua Han, Yukuai Chen, Wei Zhang, Chunjing Xu, Dit-Yan Yeung, Xiaodan Liang, Zhenguo Li, Hang Xu.</p></div>
-                <div class="conference"><p><em>European Conference on Computer Vision (ECCV), 2022.</em></p></div>
-                <div class="conference"><p><em>Workshop of Automonous Driving, Vision and Learning Seminar (VALSE), 2023 (<span style="color:red"><b>spotlight</b></span>).</em></p></div>
-                <a class="url" href="https://arxiv.org/abs/2203.07724" target="_blank">[PDF]</a>
-                <a class="url" href="https://coda-dataset.github.io/" target="_blank">[Website]</a>
-                <a class="url" href="https://sslad2022.github.io/" target="_blank">[ECCV 2022 Workshop]</a>
+                <a class="url" href="https://openreview.net/forum?id=j8IiQUM33s" target="_blank">[PDF]</a><a class="url" href="https://mp.weixin.qq.com/s/duJODVzfI6aJsx3L58IkcQ" target="_blank">[Report]</a>
         </div>
     </div>
 
@@ -260,6 +294,40 @@
 
     <div class="publication-container">
         <div class="teaser-container">
+            <img class="teaser" src="./images/pub/MultiSiam.png" alt="MultiSiam.png">
+        </div>
+        <div class="info-container">
+                <p class="title">
+                    <a class="title_link" href="https://arxiv.org/abs/2108.12178" target="_blank">MultiSiam: Self-supervised Multi-instance Siamese Representation Learning for Autonomous Driving</a>
+                </p>
+                <div class="authors"><p><strong>Kai Chen</strong>, Lanqing Hong, Hang Xu, Zhenguo Li, Dit-Yan Yeung.</p></div>
+                <div class="conference"><p><em>IEEE/CVF International Conference on Computer Vision (ICCV), 2021.</em></p></div>
+                <a class="url" href="https://arxiv.org/abs/2108.12178" target="_blank">[PDF]</a>
+                <a class="url" href="https://zhuanlan.zhihu.com/p/406649716" target="_blank">[Report]</a>
+        </div>
+    </div>
+
+
+    <h5><b>Others</b></h5>
+    <div class="publication-container">
+        <div class="teaser-container">
+            <img class="teaser" src="./images/pub/coda.png" alt="coda.png">
+        </div>
+        <div class="info-container">
+                <p class="title">
+                    <a class="title_link" href="https://arxiv.org/abs/2203.07724" target="_blank">CODA: A Real-World Road Corner Case Dataset for Object Detection in Autonomous Driving</a>
+                </p>
+                <div class="authors"><p>Kaican Li*, <strong>Kai Chen*</strong>, Haoyu Wang*, Lanqing Hong, Chaoqiang Ye, Jianhua Han, Yukuai Chen, Wei Zhang, Chunjing Xu, Dit-Yan Yeung, Xiaodan Liang, Zhenguo Li, Hang Xu.</p></div>
+                <div class="authors"><p><em><b><span style="color:red">First open-sourced large-scale real-life corner case dataset!</span></em></p></b></div><div class="conference"><p><em>European Conference on Computer Vision (ECCV), 2022.</em></p></div>
+                <div class="conference"><p><em>Workshop of Automonous Driving, Vision and Learning Seminar (VALSE), 2023 (<span style="color:red"><b>spotlight</b></span>).</em></p></div>
+                <a class="url" href="https://arxiv.org/abs/2203.07724" target="_blank">[PDF]</a>
+                <a class="url" href="https://coda-dataset.github.io/" target="_blank">[Website]</a>
+                <a class="url" href="https://sslad2022.github.io/" target="_blank">[ECCV 2022 Workshop]</a>
+        </div>
+    </div>
+
+    <div class="publication-container">
+        <div class="teaser-container">
             <img class="teaser" src="./images/pub/SODA10M.png" alt="SODA10M.png">
         </div>
         <div class="info-container">
@@ -270,22 +338,7 @@
                 <div class="conference"><p><em>Datasets and Benchmarks Track, Neural Information Processing Systems (NeurIPS), 2021.</em></p></div>
                 <a href="https://arxiv.org/abs/2106.11118">[PDF]</a>
                 <a href="https://soda-2d.github.io/">[Website]</a>
-                <a href="https://sslad2021.github.io/">[ICCV Workshop]</a>
-        </div>
-    </div>
-
-    <div class="publication-container">
-        <div class="teaser-container">
-            <img class="teaser" src="./images/pub/MultiSiam.png" alt="MultiSiam.png">
-        </div>
-        <div class="info-container">
-                <p class="title">
-                    <a class="title_link" href="https://arxiv.org/abs/2108.12178" target="_blank">MultiSiam: Self-supervised Multi-instance Siamese Representation Learning for Autonomous Driving</a>
-                </p>
-                <div class="authors"><p><strong>Kai Chen</strong>, Lanqing Hong, Hang Xu, Zhenguo Li, Dit-Yan Yeung.</p></div>
-                <div class="conference"><p><em>IEEE/CVF International Conference on Computer Vision (ICCV), 2021.</em></p></div>
-                <a class="url" href="https://arxiv.org/abs/2108.12178" target="_blank">[PDF]</a>
-                <a class="url" href="https://zhuanlan.zhihu.com/p/406649716" target="_blank">[Zhihu Post (Chinese)]</a>
+                <a href="https://sslad2021.github.io/">[ICCV 2021 Workshop]</a>
         </div>
     </div>
 
