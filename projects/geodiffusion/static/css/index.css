@@ -2,6 +2,10 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.new {
+  color: blue;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
@@ -154,9 +158,4 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
-}
-.publication-title {
-  font-family: 'GT Ultra', Google+Sans;
-  font-size: 25pt;
-  font-weight: bold;
 }

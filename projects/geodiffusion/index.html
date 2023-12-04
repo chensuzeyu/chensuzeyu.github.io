@@ -33,12 +33,20 @@
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="../../images/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <!-- Vendor Stylesheets -->
+  <!--=================js==========================-->
+  <link rel="stylesheet" href="./static/css/tab_gallery.css">
+  <link rel="stylesheet" href="./static/css/juxtapose.css">
+  <link rel="stylesheet" href="./static/css/image_card_fader.css">
+  <link rel="stylesheet" href="./static/css/image_card_slider.css">
 </head>
 <body>
 
@@ -87,7 +95,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="publication-title">GeoDiffusion: Text-Prompted Geometric Control for Object Detection Data Generation</h1>
+          <h1 class="title is-2 publication-title">GeoDiffusion: Text-Prompted Geometric Control for Object Detection Data Generation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://kaichen1998.github.io/">Kai Chen</a><sup>1*</sup>,</span>
@@ -195,6 +203,41 @@
   </div>
 </section>
 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/coco_1.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/coco_2.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/coco_3.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/nuimages_1.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/nuimages_2.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/nuimages_3.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -225,82 +268,79 @@
 </section>
 
 
+<section class="section" style="background-color: #f1f1f1;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Camera View Control</h2>
+      </div>
+    </div>
+  </div>
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/camera_1.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/camera_2.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/camera_3.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
-  <!-- <div class="hero-body"> -->
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
-        <div class="container" width=700px>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/nuimages_1.PNG">
-              </div>
-            </div>
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/nuimages_2.PNG">
-              </div>
-            </div>
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/nuimages_3.PNG">
-              </div>
-            </div>
-          </div>
+      <div class="column is-full-width">
+        <h2 class="title is-2">Domain Adapation</h2>
+      </div>
+    </div>
+  </div>
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/domain_1.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/domain_2.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/domain_3.PNG" class="progressive replace" alt="image" width="100%" />
         </div>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="section" style="background-color: #f1f1f1;">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-4">Generataion on NuImages</h2>
-        <div class="container" width=700px>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/nuimages_1.PNG">
-              </div>
-            </div>
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/nuimages_2.PNG">
-              </div>
-            </div>
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/nuimages_3.PNG">
-              </div>
-            </div>
-          </div>
+      <div class="column is-full-width">
+        <h2 class="title is-2">3D Geometric Controls</h2>
+      </div>
+    </div>
+  </div>
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/3d_1.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/3d_2.PNG" class="progressive replace" alt="image" width="100%" />
+        </div>
+        <div class="item item-examples">
+          <img src="./static/images/fidelity/3d_3.PNG" class="progressive replace" alt="image" width="100%" />
         </div>
       </div>
     </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-4">Generataion on COCO</h2>
-        <div class="container" width=700px>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/coco_1.PNG">
-              </div>
-            </div>
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/coco_2.PNG">
-              </div>
-            </div>
-            <div class="item item-clevr">
-              <div class="teaser">
-                <img src="./static/images/fidelity/coco_3.PNG">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
 </section>
 
 
@@ -308,10 +348,10 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{chen2023integrating,
-  author    = {Chen, Kai and Xie, Enze and Chen, Zhe and Hong, Lanqing and Li, Zhenguo and Yeung, Dit-Yan},
-  title     = {Integrating Geometric Control into Text-to-Image Diffusion Models for High-Quality Detection Data Generation via Text Prompt},
-  journal   = {arXiv: 2306.04607},
-  year      = {2023},
+  title={Integrating Geometric Control into Text-to-Image Diffusion Models for High-Quality Detection Data Generation via Text Prompt},
+  author={Chen, Kai and Xie, Enze and Chen, Zhe and Hong, Lanqing and Li, Zhenguo and Yeung, Dit-Yan},
+  journal={arXiv preprint arXiv:2306.04607},
+  year={2023}
 }</code></pre>
   </div>
 </section>
