@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Multi-object Tracking Data Generation via Diffusion Models">
+  <meta name="description" content="Tracklet-Conditioned Video Generation via Diffusion Models">
   <meta name="keywords" content="TrackDiffusion, video generation, diffusion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TrackDiffusion: Multi-object Tracking Data Generation via Diffusion Models</title>
+  <title>TrackDiffusion: Tracklet-Conditioned Video Generation via Diffusion Models</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -31,6 +31,102 @@
   <link rel="stylesheet" href="./static/css/juxtapose.css">
   <link rel="stylesheet" href="./static/css/image_card_fader.css">
   <link rel="stylesheet" href="./static/css/image_card_slider.css">
+
+  <style>
+    .media-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .media-item {
+      flex: 0 0 auto;
+      margin: 10px;
+      max-width: 27%;
+    }
+
+    .media-item img,
+    .media-item video {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .video-title {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .video-title span {
+      position: absolute;
+      top: 10px;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 10px;
+    }
+
+    .video-title span:nth-child(1) {
+      left: 0;
+    }
+
+    .video-title span:nth-child(2) {
+      left: 28.7%;
+    }
+
+    .video-title span:nth-child(3) {
+      left: 57.0%;
+    }
+
+    /* Flexbox布局 */
+    .gif-display-container {
+      display: flex;
+      justify-content: center;
+      /* 在各项之间平均分布空间 */
+      flex-wrap: wrap;
+      /* 允许项在必要时换行 */
+    }
+
+    .highlight {
+      color: blue;
+      font-weight: bold;
+    }
+
+    .highlight1 {
+      color: rgb(166, 33, 33);
+      font-weight: bold;
+    }
+
+    .video-block {
+      position: relative;
+      flex-basis: 30%;
+      /* 每个video-block占行宽的大约一半，留下一些空间防止挤压 */
+      margin: 0 1%;
+      /* 为了保持视觉间隔，添加左右外边距 */
+      margin-bottom: 20px;
+      /* 为每行底部添加一些空间 */
+    }
+
+    .gif-display-item,
+    .video-caption {
+      text-align: center;
+      /* 文本居中 */
+      width: 100%;
+      /* 视频和文本宽度占满其容器 */
+    }
+
+    .video-caption {
+      margin-top: 5px;
+      /* 与视频之间留点间隔 */
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #000000;
+      padding: 10px 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -43,41 +139,6 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://kaichen1998.github.io/">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Geometric-aware Perception Corner Case Generation Series
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://coda-dataset.github.io/">
-            CODA (Corner Case Mining)
-          </a>
-          <a class="navbar-item" href="https://kaichen1998.github.io/projects/geodiffusion/">
-            GeoDiffusion (2D Detection)
-          </a>
-          <a class="navbar-item" href="https://gaoruiyuan.com/magicdrive/">
-            MagicDrive (3D Detection)
-          </a>
-          <a class="navbar-item" href="https://kaichen1998.github.io/projects/trackdiffusion/">
-            TrackDiffusion (Video Tracking)
-          </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2403.13304">
-            DetDiffusion (Personalized Corner Case Generation)
-          </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2310.05873">
-            Geom-Erasing (Concept Removal)
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
   </nav>
 
 
@@ -88,75 +149,26 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
               <img src="./static/images/favicon.png" alt="Icon" style="vertical-align: middle;" width="80px" />
-              TrackDiffusion: Multi-object Tracking Data Generation via Diffusion Models
+              TrackDiffusion: Tracklet-Conditioned Video Generation via Diffusion Models
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://pixeli99.github.io">Pengxiang Li</a><sup>1*</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=FdR09jsAAAAJ&hl=zh-TW">Zhili Liu</a><sup>2,3*</sup>,</span>
-              <span class="author-block">
-                <a href="https://kaichen1998.github.io">Kai Chen</a><sup>2*</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com.sg/citations?user=2p7x6OUAAAAJ&hl=en">
-                  Lanqing Hong</a><sup>3</sup>,</span>
-              <span class="author-block">
-                <a href="">
-                  Yunzhi Zhuge</a><sup>1</sup>,</span>
-              <br>
-              <span class="author-block">
-                <a href="https://sites.google.com/view/dyyeung">Dit-Yan Yeung</a><sup>2</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=D3nE0agAAAAJ&hl=en">Huchuan Lu</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://stephenjia.github.io/">Xu Jia</a><sup>1<span>&#8224;</span></sup>,</span>
+                <!-- <a href="https://magic-drive.github.io">Anonymous</a></span> -->
+                Anonymous</span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Dalian University of Technology,</span>
-              <span class="author-block"><sup>2</sup>Hong Kong University of Science and Technology,</span>
-              <span class="author-block"><sup>3</sup>Huawei Noah's Ark Lab</span>
+              <span class="author-block">Anonymous Institution</span>
             </div>
-            <div class="publication-footnotes">
-              <span class="author-block">(
-                <sup>*</sup>Equal contribution.
-                <sup><span>&#8224;</span></sup>Corresponding authors.
-                )</span>
-            </div>
+
+            <!-- <div class="is-size-5 publication-authors">
+          </div> -->
 
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- PDF Link. -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2312.00651.pdf" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <!-- Arxiv Link. -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2312.00651" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-                <!-- Code Link. -->
-                <span class="link-block">
-                  <a href="https://github.com/pixeli99/TrackDiffusion"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </div>
@@ -181,61 +193,110 @@
   </section>
 
 
+  <section class="hero is-light is-small" style="background-color: #d2cece20;">
+    <!-- 第一行视频和文本 -->
+    <div class="gif-display-container">
 
-
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-examples">
-            <img src="./static/images/vis_demo1.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/vis_demo2.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/vis_demo3.gif" class="progressive replace" alt="image" width="100%" />
-            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
+      <div class="video-block">
+        <div class="gif-display-item">
+          <div class="video-title">
+            <span>ModelScope</span>
+            <span>AnimateDiff</span>
+            <span>Ours</span>
           </div>
-          <div class="item item-examples">
-            <img src="./static/images/nus_demo1.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/nus_demo2.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/nus_demo3.gif" class="progressive replace" alt="image" width="100%" />
-            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
-          </div>
-          <div class="item item-examples">
-            <img src="./static/images/got_demo1.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/got_demo2.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/got_demo3.gif" class="progressive replace" alt="image" width="100%" />
-            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
-          </div>
+          <video class="gif-display-img" muted preload="auto" playsinline autoplay loop height="100%">
+            <source src="./static/videos/demo6.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="video-caption">The motorcyclist <span class="highlight1">crouched into a streamlined
+            position</span>, speeding <span class="highlight">left</span> down the country
+          road.</div>
+      </div>
+
+      <div class="video-block">
+        <div class="gif-display-item">
+          <div class="video-title">
+            <span>ModelScope</span>
+            <span>AnimateDiff</span>
+            <span>Ours</span>
+          </div>
+          <video class="gif-display-img" muted preload="auto" playsinline autoplay loop height="100%">
+            <source src="./static/videos/demo2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">An SUV is driving to the <span class="highlight">left</span> on a rugged mountain
+          road, <span class="highlight1">with the camera panning
+            along with its movement.</span></div>
       </div>
     </div>
-  </section>
 
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-examples">
-            <img src="./static/images/vis_demo4.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/vis_demo5.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/vis_demo6.gif" class="progressive replace" alt="image" width="100%" />
-            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
+    <div class="gif-display-container">
+      <div class="video-block">
+        <div class="gif-display-item">
+          <div class="video-title">
+            <span>ModelScope</span>
+            <span>AnimateDiff</span>
+            <span>Ours</span>
           </div>
-          <div class="item item-examples">
-            <img src="./static/images/nus_demo4.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/nus_demo5.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/nus_demo6.gif" class="progressive replace" alt="image" width="100%" />
-            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
-          </div>
-          <div class="item item-examples">
-            <img src="./static/images/got_demo4.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/got_demo5.gif" class="progressive replace" alt="image" width="100%" />
-            <img src="./static/images/got_demo6.gif" class="progressive replace" alt="image" width="100%" />
-            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
-          </div>
+          <video class="gif-display-img" muted preload="auto" playsinline autoplay loop height="100%">
+            <source src="./static/videos/demo3.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="video-caption">A deer is swiftly running <span class="highlight1">through the forest.</span></div>
+      </div>
+
+      <div class="video-block">
+        <div class="gif-display-item">
+          <div class="video-title">
+            <span>ModelScope</span>
+            <span>AnimateDiff</span>
+            <span>Ours</span>
+          </div>
+          <video class="gif-display-img" muted preload="auto" playsinline autoplay loop height="100%">
+            <source src="./static/videos/demo4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">A rocket rapidly ascends, <span class="highlight1">camera shakily tracking its
+            path.</span></div>
       </div>
     </div>
+
+    <div class="gif-display-container">
+      <div class="video-block">
+        <div class="gif-display-item">
+          <div class="video-title">
+            <span>ModelScope</span>
+            <span>AnimateDiff</span>
+            <span>Ours</span>
+          </div>
+          <video class="gif-display-img" muted preload="auto" playsinline autoplay loop height="100%">
+            <source src="./static/videos/demo1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">Two parrots playfully interact in a cage, <span class="highlight1">touching each
+            other.</span></div>
+      </div>
+
+      <div class="video-block">
+        <div class="gif-display-item">
+          <div class="video-title">
+            <span>ModelScope</span>
+            <span>AnimateDiff</span>
+            <span>Ours</span>
+          </div>
+          <video class="gif-display-img" muted preload="auto" playsinline autoplay loop height="100%">
+            <source src="./static/videos/demo5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">A large truck is winding its way <span class="highlight1">along a twisting mountain
+            road.</span></div>
+      </div>
+    </div>
+
   </section>
+
+
+
 
 
   <section class="section">
@@ -245,43 +306,54 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
-            <p>
-              Diffusion models have gained prominence in generating data for perception tasks such as image
-              classification and object detection.
-              However, the potential in generating high-quality tracking sequences, a crucial aspect in the field of
-              video perception, has not been fully investigated.
-              To address this gap, we propose <span class="dnerf">TrackDiffusion</span>, a novel architecture designed
-              to generate continuous video
-              sequences from the tracklets.
-              <span class="dnerf">TrackDiffusion</span> represents a significant departure from the traditional
-              layout-to-image (L2I) generation
-              and copy-paste synthesis focusing on static image elements like bounding boxes by empowering image
-              diffusion models to encompass dynamic and continuous tracking trajectories, thereby capturing complex
-              motion nuances and ensuring instance consistency among video frames.
-              For the first time, we demonstrate that the generated video sequences can be utilized for training
-              multi-object tracking (MOT) systems,
-              leading to significant improvement in tracker performance.
-              Experimental results show that our model significantly enhances instance consistency in generated video
-              sequences, leading to improved perceptual metrics. Our approach achieves an improvement of 8.7 in TrackAP
-              and 11.8 in TrackAP$_{50}$ on the YTVIS dataset, underscoring its potential to redefine the standards of
-              video data generation for MOT tasks and beyond.
+            <p>Despite remarkable achievements in video synthesis, achieving granular control over complex dynamics,
+              such as nuanced movement among multiple interacting objects, still presents a significant hurdle for
+              dynamic world modeling, compounded by the necessity to manage <em>appearance and disappearance</em>,
+              <em>drastic scale changes</em>, and ensure <em>consistency for instances across frames</em>. These
+              challenges hinder the development of video generation that can faithfully mimic real-world complexity,
+              limiting utility for applications requiring high-level realism and controllability, including advanced
+              scene simulation and training of perception systems.
             </p>
+            <p>To address that, we propose <strong>TrackDiffusion</strong>, a novel video generation framework affording
+              fine-grained trajectory-conditioned motion control via diffusion models, which facilitates the precise
+              manipulation of the object trajectories and interactions, overcoming the prevalent limitation of scale and
+              continuity disruptions. A pivotal component of TrackDiffusion is the <em>instance enhancer</em>, which
+              explicitly ensures inter-frame consistency of multiple objects, a critical factor overlooked in the
+              current literature. Moreover, we demonstrate that generated video sequences by our TrackDiffusion can be
+              used as training data for visual perception models. To the best of our knowledge, this is the first work
+              to apply video diffusion models with tracklet conditions and demonstrate that generated frames can be
+              beneficial for improving the performance of object trackers.</p>
           </div>
         </div>
       </div>
-      <!--/ Abstract. -->
-
-      <!-- Paper video. -->
-      <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </section>
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Examples on Driving Scenes</h2>
+          </div>
+        </div>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-examples">
+            <img src="./static/images/nus_demo1.gif" class="progressive replace" alt="image" width="100%" />
+            <img src="./static/images/nus_demo2.gif" class="progressive replace" alt="image" width="100%" />
+            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
+          </div>
+          <div class="item item-examples">
+            <img src="./static/images/nus_demo4.gif" class="progressive replace" alt="image" width="100%" />
+            <img src="./static/images/nus_demo5.gif" class="progressive replace" alt="image" width="100%" />
+            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
+          </div>
+          <div class="item item-examples">
+            <img src="./static/images/nus_demo3.gif" class="progressive replace" alt="image" width="100%" />
+            <img src="./static/images/nus_demo6.gif" class="progressive replace" alt="image" width="100%" />
+            <!-- <img class="image" id="0_gen0" src="./static/images/scene1_sun.png" width="100%"> -->
+          </div>
         </div>
       </div>
-    </div> -->
-      <!--/ Paper video. -->
     </div>
   </section>
 
@@ -290,57 +362,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
-
-          <h2 class="title is-3">Challenging Scenarios</h2>
-
-          <!-- Interpolation -->
-          <p>
-            Tracklet-to-video generation in the <strong>(a) scale variation (b) challenging overlapping and (c)
-              re-occurrence</strong> scenarios.
-          </p>
-
-          <div class="content has-text-centered">
-            <img src="./static/images/teaser.png" alt="image" width="100%" />
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+              <h2 class="title is-3">Downstream Support</h2>
+            </div>
           </div>
-          <!--/ Interpolation -->
-          <!--/ Video sequence. -->
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-
-      <!-- Animation. -->
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-
-          <h2 class="title is-3">Visualization of Generation</h2>
-          <!-- Interpolating. -->
-          <div class="content has-text-justified">
-            <img class="center" id="downstream" src="./static/images/ytvis_data.png" width="100%" loading="lazy">
-            <img class="center" id="downstream" src="./static/images/got_data.png" width="100%" loading="lazy">
-            <p>
-              <span class="dnerf">TrackDiffusion</span> can precisely control the position of objects while maintaining
-              the appearance consistency of instances outside.
-            </p>
-          </div>
-          <br />
-          <br />
-          <!--/ main results. -->
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background-color: #f1f1f1;">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Downstream Support</h2>
           <div class="content has-text-justified">
             <p>
               Generation from <span class="dnerf">TrackDiffusion</span> can be used as
@@ -381,26 +407,13 @@
     </div>
   </section>
 
-
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{li2023trackdiffusion,
-  title={TrackDiffusion: Multi-object Tracking Data Generation via Diffusion Models},
-  author={Li, Pengxiang and Liu, Zhili and Chen, Kai and Hong, Lanqing and Zhuge, Yunzhi and Yeung, Dit-Yan and Lu, Huchuan and Jia, Xu},
-  journal={arXiv preprint arXiv:2312.00651},
-  year={2023},
-}</code></pre>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content">
             <p>
-              This website uses the template from <a href="https://nerfies.github.io/">Nerfies</a>, licensed under <a rel="license"
+              This website is licensed under a <a rel="license"
                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
                 Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
