@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Unified Triplet-Level Hallucination Evaluation for Large Vision-Language Models">
+  <meta name="keywords" content="Tri-HE, large vision-language models, hallucination, object hallucination, relation hallucination, hallucination detection, hallucination mitigation, AIGC">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified Triplet-Level Hallucination Evaluation for Large Vision-Language Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="../../images/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- Vendor Stylesheets -->
+  <!--=================js==========================-->
+  <link rel="stylesheet" href="./static/css/tab_gallery.css">
+  <link rel="stylesheet" href="./static/css/juxtapose.css">
+  <link rel="stylesheet" href="./static/css/image_card_fader.css">
+  <link rel="stylesheet" href="./static/css/image_card_slider.css">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <!-- <a class="navbar-item" href="https://kaichen1998.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Data Flywheel for (M)LLM Alignment
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://gyhdog99.github.io/projects/ecso/">
+            ECSO (MLLM self-alignment)
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2310.10477">
+            Mistake Analysis (LLM self-alignment)
+          </a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Unified Triplet-Level Hallucination Evaluation for Large Vision-Language Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://wujunjie1998.github.io/">Junjie Wu</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/tsz-ting-chung-5a47aa174/?originalSubdomain=hk">Tsz Ting Chung</a><sup>*</sup>,
+            <span class="author-block">
+              <a href="https://kaichen1998.github.io/">Kai Chen</a><sup>*</sup>,</span>
+              </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/dyyeung/home">Dit-Yan Yeung</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Hong Kong University of Science and Technology</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">(<sup>*</sup>Equal contribution.)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2410.23114"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.23114"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/wujunjie1998/Tri-HE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser">
+        <img src="./static/images/abstract.PNG">
+      </div>
+      <h2 class="subtitle has-text-centered">
+        (a) <b>Tri-HE</b> proposes a novel triplet-level LVLM hallucination evaluation pipeline by comparing the <u><em>scene graphs</em></u> of input images and the <u><em>knowledge graphs</em></u> of LVLM responses,
+        (b) empowering unified evaluation of object and relational hallucination for LVLMs.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: #f1f1f1;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Despite the outstanding performance in vision-language reasoning, Large Vision-Language Models (LVLMs) might generate hallucinated contents that do not exist in given images. 
+            Most existing LVLM hallucination benchmarks are constrained for object-related hallucinations. 
+            However, the potential hallucination on the relations between two objects, i.e., relation hallucination, still lacks investigation. 
+            To remedy that, we design a unified framework to measure object and relation hallucination in LVLMs simultaneously.
+            The core idea is to conduct hallucination evaluation on the <u><b>(object, relation, object)</b></u> triplets extracted from LVLMs' responses. 
+            We introduce <u><b>Tri-HE</b></u>, a novel Triplet-level Hallucination Evaluation benchmark which can be used to study both object and relation hallucination at the same time. 
+            We conduct comprehensive evaluations on Tri-HE and observe that the relation hallucination issue is even more serious than object hallucination among existing LVLMs, highlighting a previously neglected problem towards reliable LVLMs.
+            Moreover, based on our findings, we design a simple yet effective training-free approach to mitigate hallucinations for LVLMs, with which, we exceed all open-sourced counterparts on Tri-HE, achieving comparable performance with the powerful GPT-4V. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">🤔 Hallucination or Error?</h2>
+      </div>
+    </div>
+    <div class="teaser">
+      <center>
+        <img src="./static/images/definition.PNG" width="75%">
+      </center>
+    </div>
+    <br/>
+    <h2 class="subtitle has-text-centered">
+      <b>Tri-HE</b> clearly distinguish object/relational hallucinations with prediction errors of Large Vision-Language Models via a triplet-level framework. 
+    </h2>
+  </div>
+</section>
+
+<section class="section" style="background-color: #f1f1f1;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Tri-HE Data Samples</h2>
+      </div>
+    </div>
+    <div class="teaser">
+      <center>
+        <img src="./static/images/sample.PNG" width="75%">
+      </center>
+    </div>
+    <br/>
+    <h2 class="subtitle has-text-centered">
+      <b>Tri-HE</b> images are all associated with a scene graph and question-answer pairs with the reasoning triplet annotations. 
+    </h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Tri-HE Hallucination Mitigation</h2>
+      </div>
+    </div>
+    <div class="teaser">
+      <center>
+        <img src="./static/images/mitigation.PNG" width="75%">
+      </center>
+    </div>
+    <br/>
+    <h2 class="subtitle has-text-centered">
+      <b>Tri-HE</b> proposes a <u><em>training-free</em></u> hallucination mitigation method by 1) first prompting LVLMs to extract <u><em>relational descriptions</em></u> from given images, 2) based on which LVLMs are required to respond user queries <u><em>without seeing the images</em></u>. 
+    </h2>
+  </div>
+</section>
+
+<section class="section" id="BibTeX" style="background-color: #f1f1f1;">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wu2024unified,
+  title={Unified Triplet-Level Hallucination Evaluation for Large Vision-Language Models},
+  author={Wu, Junjie and Chung, Tsz Ting and Chen, Kai and Yeung, Dit-Yan},
+  journal={arXiv preprint arXiv:2410.23114},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <center>The website template was adapted from <a href="https://nerfies.github.io/">Nerfies</a>. We thank the authors for sharing the templates.
+            </center>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
