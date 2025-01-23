@@ -1,0 +1,19 @@
+.company-name {
+    font-weight: bold;
+    display: block;
+}
+
+.location {
+    font-size: smaller;
+    display: block;
+}
+
+.role-title {
+    display: block;
+    font-style: italic;
+}
+
+.time-period {
+    display: block;
+    text-align: right;
+}
