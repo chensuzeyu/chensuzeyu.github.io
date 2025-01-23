@@ -1,19 +1,23 @@
+/* 设置公司名称为加粗样式 */
 .company-name {
     font-weight: bold;
-    display: block;
 }
 
+/* 设置地点字体稍小 */
 .location {
     font-size: smaller;
-    display: block;
 }
 
+/* 设置公司信息和时间在同一行显示，并两端对齐 */
+.company,
+.role {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 设置职位标题斜体并独占一行 */
 .role-title {
-    display: block;
     font-style: italic;
-}
-
-.time-period {
-    display: block;
-    text-align: right;
+    width: 100%;
 }
