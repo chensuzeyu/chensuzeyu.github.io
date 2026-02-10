@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Suzeyu Chen's Homepage">
+  <title>Suzeyu Chen's Homepage</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="avatar-container">
+      <img class="avatar" src="images/profile.png" alt="Suzeyu Chen">
+    </div>
+    <h1 class="name">Suzeyu Chen<br>(陈苏泽宇)</h1>
+    <p class="title">M.S. Student @ HKUST(GZ)</p>
+    <nav class="contact">
+      <a class="link" href="mailto:schen744@connect.hkust-gz.edu.cn" target="_blank" rel="noopener">Email</a>
+      <a class="link" href="https://github.com/chensuzeyu" target="_blank" rel="noopener">Github</a>
+      <a class="link" href="https://gitee.com/chen-suzeyu" target="_blank" rel="noopener">Gitee</a>
+      <a class="link" href="https://blog.csdn.net/weixin_57972634" target="_blank" rel="noopener">CSDN</a>
+      <a class="link" href="https://scholar.google.com/citations?user=zmRv188AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="link" href="https://www.zhihu.com/people/chen-su-tong-xue-82" target="_blank" rel="noopener">知乎</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="main-content-wrap">
+    <div class="main-inner">
+    <section id="about" class="section profile-section">
+      <h2 class="section-title">About Me</h2>
+      <div class="details">
+        <p>I am currently a Master of Science candidate at The Hong Kong University of Science and Technology (Guangzhou), working under the supervision of <a href="https://www.yingcong.me/" target="_blank" rel="noopener">Prof. Ying-Cong Chen</a>. I completed my undergraduate studies in Management Information Systems at Beijing Jiaotong University, where I was mentored by <a href="http://sem.bjtu.edu.cn/show-594-228.html" target="_blank" rel="noopener">Prof. Jing Luan</a> and graduated in 2024.</p>
+        <p>My current research focuses on:</p>
+        <ul class="research-interests">
+          <li>🤖 Embodied Multimodal AI Agent</li>
+          <li>🌎 Task Planning with World Models</li>
+          <li>🎯 Perception-Action Loop</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="research" class="section news-section">
+      <h2 class="section-title">Research Experience</h2>
+      <article class="paper-card">
+        <div class="paper-card-inner">
+          <figure class="paper-card-fig">
+            <img src="images/spot-occ-model.png" alt="SPOT-Occ framework: Latent Feature Extraction and Sparse Prototype-guided Transformer Head">
+          </figure>
+          <div class="paper-card-body">
+            <h3 class="paper-title">SPOT-Occ: Sparse Prototype-guided Transformer for Camera-based 3D Occupancy Prediction</h3>
+            <p class="paper-authors"><strong>Suzeyu Chen</strong>, Leheng Li, Ying-Cong Chen</p>
+            <p class="paper-meta">arXiv:2602.04240 · 2026</p>
+            <div class="paper-links">
+              <a class="paper-link paper-link-arxiv" href="https://arxiv.org/abs/2602.04240" target="_blank" rel="noopener">arXiv</a>
+              <a class="paper-link paper-link-github" href="https://github.com/chensuzeyu/SpotOcc" target="_blank" rel="noopener">Code (GitHub)</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="professional" class="section news-section">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="experience-item">
+        <div class="company">
+          <span class="company-name">Knowin.ai</span>
+          <span class="time-period">Oct 2025 - Present</span>
+        </div>
+        <p class="role-title">Robotics Algorithm Engineering Intern, Multimodal LLM Team</p>
+        <ul>
+          <li>Responsible for synthetic data and evaluation automation pipelines, and on-device deployment and debugging of large models for real robots.</li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <div class="company">
+          <span class="company-name">China Everbright Securities</span>
+          <span class="time-period">Aug 2022 - Sep 2022</span>
+        </div>
+        <p class="role-title">Quantitative Research Intern, Quantitative Research Group</p>
+        <ul>
+          <li>Reproduced factor RF pricing and DeepLOB (CNN-GRU) models; achieved out-of-sample R² 0.32 on CSI 300 monthly returns and 82.6% accuracy on tick-level price movement prediction.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="clustrmaps-wrap">
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=IMS0-0opEnOyB1j93P3PApQASLHNKlFwxQNS-JPJqVc&cl=ffffff&w=200"></script>
+    </div>
+
+    </div>
+    </div>
+    <nav class="toc" aria-label="页面目录">
+      <div class="toc-inner">
+        <span class="toc-label">Contents</span>
+        <a href="#about" class="toc-link">About Me</a>
+        <a href="#research" class="toc-link">Research Experience</a>
+        <a href="#professional" class="toc-link">Professional Experience</a>
+      </div>
+    </nav>
+  </main>
+  <script>
+    (function() {
+      var sections = document.querySelectorAll('section[id]');
+      var tocLinks = document.querySelectorAll('.toc-link');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var id = entry.target.id;
+          tocLinks.forEach(function(link) {
+            var active = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('active', active);
+          });
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+      sections.forEach(function(s) { observer.observe(s); });
+    })();
+  </script>
+</body>
+</html>
