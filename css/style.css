@@ -58,6 +58,17 @@ a:hover { opacity: 0.75; }
   gap: 10px;
   font-size: 15px;
 }
+.sidebar .contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.sidebar .link-meta {
+  font-size: 13px;
+  color: #888;
+  font-weight: 400;
+  text-decoration: none;
+}
 
 /* 右侧主内容区：可滚动 */
 .main {

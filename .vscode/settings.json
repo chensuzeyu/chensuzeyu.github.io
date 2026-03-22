@@ -1,0 +1,15 @@
+{
+    "json.schemas": [],
+    "latex-workshop.intellisense.bibtexJSON.replace": {},
+    "remote.otherPortsAttributes": {
+        "onAutoForward": "notify"
+    },
+    "remote.portsAttributes": {
+        "443": {
+            "protocol": "https"
+        },
+        "8443": {
+            "protocol": "https"
+        }
+    }
+}

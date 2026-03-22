@@ -18,7 +18,8 @@ personal-site/
 ## 本地预览
 
 - 用浏览器直接打开 `index.html`，或
-- 在项目根目录执行：`npx serve .` 或 `python -m http.server 8000`，然后访问对应地址。
+- 在项目根目录执行：`npx serve .`，或 **`python serve.py`**（推荐：会先打印 IPv4 / `[::]` 地址再启动服务），或 `python -m http.server 8000`。
+- 浏览器可访问 **`http://127.0.0.1:8000`**（IPv4）；终端若出现 **`[::]:8000`**，也可用 **`http://[::]:8000`**。
 
 ## GitHub 部署 (GitHub Pages)
 
