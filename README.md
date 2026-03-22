@@ -51,4 +51,10 @@ personal-site/
   - `git config http.lowSpeedLimit 0` 与 `git config http.lowSpeedTime 999999` — 降低因瞬时低速被中断的概率。
   - `git config core.compression 0` — 推送时不压缩对象，减轻 CPU 与部分链路问题。
   - Windows 上可试 `git config http.sslBackend schannel`（改用系统证书链）；若变差可 `git config --unset http.sslBackend`。
-- **若 HTTPS 长期不稳定**，可改用 **SSH，并走 443 端口**（在 `~/.ssh/config` 中为 `github.com` 指定 `HostName ssh.github.com`、`Port 443`、`User git`），再将 `origin` 改为 `git@github.com:用户名/仓库.git` 后推送。详见 [GitHub：使用 SSH 通过 HTTPS 端口连接](https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)（官方文档已从旧路径迁移，若收藏了旧链接会 404）。
+- **若 HTTPS 长期不稳定**，可改用 **SSH，并走 443 端口**（与 `git push` / `git pull` 共用同一远程，改一次即可）：
+  1. 在 GitHub 账户中配置好 **SSH 公钥**；编辑 `~/.ssh/config`，为 **`Host github.com`** 写入 `HostName ssh.github.com`、`Port 443`、`User git`（与官方说明一致）。
+  2. 在仓库目录执行：`git remote set-url origin git@github.com:用户名/仓库.git`（将 `用户名/仓库` 换成你的路径，例如本仓库为 `chensuzeyu/chensuzeyu.github.io`）。
+  3. 可选自检：`ssh -T git@github.com`，应出现成功认证提示。
+  4. **拉取**：`git pull origin main`（若跟踪分支已是 `main`，也可直接 `git pull`）。**推送**：`git push origin main`（或 `git push`）。
+
+  详见 [GitHub：使用 SSH 通过 HTTPS 端口连接](https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)（官方文档已从旧路径迁移，若收藏了旧链接会 404）。
