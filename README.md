@@ -54,7 +54,10 @@ personal-site/
 - **若 HTTPS 长期不稳定**，可改用 **SSH，并走 443 端口**（与 `git push` / `git pull` 共用同一远程，改一次即可）：
   1. 在 GitHub 账户中配置好 **SSH 公钥**；编辑 `~/.ssh/config`，为 **`Host github.com`** 写入 `HostName ssh.github.com`、`Port 443`、`User git`（与官方说明一致）。
   2. 在仓库目录执行：`git remote set-url origin git@github.com:用户名/仓库.git`（将 `用户名/仓库` 换成你的路径，例如本仓库为 `chensuzeyu/chensuzeyu.github.io`）。
-  3. 可选自检：`ssh -T git@github.com`，应出现成功认证提示。
+  3. 自检：执行 `ssh -T git@github.com`。
+     - **首次连接**时若出现 `The authenticity of host ... can't be established`，以及 `ED25519 key fingerprint is SHA256:...`：这是 **SSH 主机密钥确认**，**不是报错**。原因是本机 `~/.ssh/known_hosts` 里还没有该主机的记录，OpenSSH 无法自动认定对方就是 GitHub，因此停下来询问。
+     - 请将终端里打印的 **SHA256 指纹** 与 [GitHub 公布的 SSH 密钥指纹](https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints) **对照**；**一致**再输入 **`yes`**，会把该主机写入 `known_hosts`，之后一般不再出现此提示（除非 GitHub 轮换密钥）。**不一致**应输入 **`no`**，并排查 DNS 是否被劫持、是否连到了伪造站点。
+     - 通过后应看到类似「You've successfully authenticated, but GitHub does not provide shell access」的成功说明。
   4. **拉取**：`git pull origin main`（若跟踪分支已是 `main`，也可直接 `git pull`）。**推送**：`git push origin main`（或 `git push`）。
 
   详见 [GitHub：使用 SSH 通过 HTTPS 端口连接](https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)（官方文档已从旧路径迁移，若收藏了旧链接会 404）。
