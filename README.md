@@ -60,4 +60,26 @@ personal-site/
      - 通过后应看到类似「You've successfully authenticated, but GitHub does not provide shell access」的成功说明。
   4. **拉取**：`git pull origin main`（若跟踪分支已是 `main`，也可直接 `git pull`）。**推送**：`git push origin main`（或 `git push`）。
 
-  详见 [GitHub：使用 SSH 通过 HTTPS 端口连接](https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)（官方文档已从旧路径迁移，若收藏了旧链接会 404）。
+### 本仓库：把 `origin` 改成 SSH 并推送（命令说明）
+
+**前提**：已在 GitHub 添加 SSH 公钥，且 `ssh -T git@github.com` 能通过（见上文步骤 3）。若出现 `Permission denied (publickey)`，说明密钥未配置或未加载，需先完成 [GitHub 文档：生成 SSH 密钥并添加到 ssh-agent](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) 与账户里的 SSH key。**若 `github.com:443` 的 HTTPS 连不上**，把远程改为 SSH 后，`push` / `pull` 会走 SSH（默认 22 端口，或由 `~/.ssh/config` 指定），不再依赖 `https://github.com/...`。
+
+在终端中依次执行（第一行为 **Windows 下进入本仓库的示例路径**，请按你本机实际目录修改；macOS / Linux 则 `cd` 到你的克隆路径即可）：
+
+```powershell
+cd E:\code\chensuzeyu.github.io
+git remote set-url origin git@github.com:chensuzeyu/chensuzeyu.github.io.git
+git remote -v
+git push origin main
+```
+
+| 命令 | 说明 |
+|------|------|
+| `cd E:\code\chensuzeyu.github.io` | 进入本地仓库根目录（必须与包含 `.git` 的目录一致）。 |
+| `git remote set-url origin git@github.com:chensuzeyu/chensuzeyu.github.io.git` | 将远程名 **`origin`** 的地址改为 SSH；格式为 `git@github.com:<GitHub用户名>/<仓库名>.git`。改完后 **`git push` / `git pull` 都走 SSH**。 |
+| `git remote -v` | 查看当前远程；`fetch` 与 `push` 应都显示 `git@github.com:chensuzeyu/chensuzeyu.github.io.git`。 |
+| `git push origin main` | 将本地分支 **`main`** 推送到 **`origin`**。若当前已在 `main` 且已设置上游跟踪，也可简写为 **`git push`**。 |
+
+若 **22 端口** 被限制，再在 `~/.ssh/config` 中为 `github.com` 配置走 **`ssh.github.com:443`**（见上文步骤 1 与官方文档）。
+
+详见 [GitHub：使用 SSH 通过 HTTPS 端口连接](https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)（官方文档已从旧路径迁移，若收藏了旧链接会 404）。
