@@ -182,6 +182,9 @@ a:hover { opacity: 0.75; }
   border-left: 4px solid #1a1a1a;
   overflow: hidden;
 }
+.paper-card + .paper-card {
+  margin-top: 32px;
+}
 .paper-card-inner {
   display: flex;
   align-items: stretch;
@@ -229,6 +232,11 @@ a:hover { opacity: 0.75; }
 .paper-authors strong {
   color: #1a1a1a;
   font-weight: 600;
+}
+.paper-author-note {
+  font-size: 13px;
+  color: #888;
+  margin: -2px 0 6px;
 }
 .paper-meta {
   font-size: 14px;
